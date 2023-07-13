@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Meja {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    pesanan Int @unique
+    pemesanan Pemesanan[]
+}
+
+model Menu {
+    id              Int      @id @default(autoincrement())
+    nama            String
+    url_gambar      String
+    deskripsi       String
+    harga           Int
+
+    detail_pesanan DetailPesanan[]
+}
+
+enum Status {
+    PENDING
+    PROCESSING
+    COMPLETED
+    REJECTED
+}
+
+model Pemesanan {
+    id        Int      @id @default(autoincrement())
+    status  Status
+    waktu_pesan     DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    no_meja Int
+    meja Meja @relation(fields: [no_meja], references: [pesanan])
+
+    detail_pesana DetailPesanan[]
+
+    @@index([no_meja])
+}
+
+model DetailPesanan {
+    id Int      @id @default(autoincrement())
+    jumlah      Int
+
+    id_menu Int 
+    menu    Menu     @relation(fields: [id_menu], references: [id])
+
+    id_pemesanan Int 
+    pemesanan   Pemesanan @relation(fields: [id_pemesanan], references: [id])
+
+    @@index([id_menu])
+    @@index([id_pemesanan])
+}
+
+model Admin {
+    id Int      @id @default(autoincrement())
+    username    String  @unique @db.VarChar(12)
+    password    String  @db.VarChar(8)
+
+    name        String
+    createdAt   DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+}
