@@ -4,12 +4,10 @@
   "scripts": {
     "build": "remix build",
     "dev": "remix dev",
+    "start": "remix-serve api/index.js",
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@conform-to/dom": "^0.7.3",
-    "@conform-to/react": "^0.7.3",
-    "@conform-to/zod": "^0.7.3",
     "@fontsource/inter": "^5.0.5",
     "@prisma/client": "^5.0.0",
     "@radix-ui/react-icons": "^1.3.0",
@@ -18,7 +16,7 @@
     "@remix-run/node": "^1.18.1",
     "@remix-run/react": "^1.18.1",
     "@remix-run/vercel": "^1.18.1",
-    "@vercel/node": "^2.10.3",
+    "@vercel/node": "^2.15.4",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
     "isbot": "^3.6.8",
