@@ -2,7 +2,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "build": "remix build",
+    "build": "npx prisma generate && remix build",
     "dev": "remix dev",
     "start": "remix-serve api/index.js",
     "typecheck": "tsc"
