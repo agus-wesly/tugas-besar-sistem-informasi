@@ -3,6 +3,7 @@ import { prisma } from '~/lib/prisma'
 
 export const query = {
   async getByUsername(username: string) {
+    console.log('us-bl', username)
     return await prisma.admin.findUnique({
       where: {
         username,
@@ -19,12 +20,12 @@ export const mutation = {
       },
     })
     if (!admin) {
-      return { error: 'Username atau password salah' }
+      return { error: 'Username atau password salah. Silahkan coba lagi' }
     }
 
     const isPasswordTrue = admin.password === password
     if (!isPasswordTrue) {
-      return { error: 'Username atau password salah' }
+      return { error: 'Username atau password salah. Silahkan coba lagi' }
     }
 
     return {

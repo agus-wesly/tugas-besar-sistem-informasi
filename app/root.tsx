@@ -7,6 +7,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  isRouteErrorResponse,
+  useRouteError,
 } from '@remix-run/react'
 
 import stylesheet from '~/tailwind.css'
@@ -17,6 +19,7 @@ import '@fontsource/plus-jakarta-sans/400.css'
 import '@fontsource/plus-jakarta-sans/500.css'
 import '@fontsource/plus-jakarta-sans/600.css'
 import '@fontsource/plus-jakarta-sans/700.css'
+import { PropsWithChildren } from 'react'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -24,7 +27,7 @@ export const links: LinksFunction = () => [
   ...(cssBundleHref ? [{ rel: 'stylesheet', href: cssBundleHref }] : []),
 ]
 
-export default function App() {
+function Document({ children }: PropsWithChildren<{ title?: string }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -34,11 +37,54 @@ export default function App() {
         <Links />
       </head>
       <body className="antialiased overflow-x-hidden max-w-md mx-auto relative">
-        <Outlet />
+        {children}
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
       </body>
     </html>
+  )
+}
+
+export default function App() {
+  return (
+    <Document>
+      <Outlet />
+    </Document>
+  )
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError()
+
+  if (isRouteErrorResponse(error)) {
+    let message
+    switch (error.status) {
+      case 401:
+        message = `Sorry, you can't access this page.`
+        break
+      case 404:
+        message = `Sorry, this page is not available.`
+        break
+      default:
+        throw new Error(error.data || error.statusText)
+    }
+    return (
+      <Document title="Uh-oh!">
+        <div>
+          <h1>App Error</h1>
+          <pre>{message}</pre>
+        </div>
+      </Document>
+    )
+  }
+
+  return (
+    <Document title="Uh-oh!">
+      <div>
+        <h1>App Error</h1>
+        <p>Ada error nih :( Cobalah lakukan refresh</p>
+      </div>
+    </Document>
   )
 }
