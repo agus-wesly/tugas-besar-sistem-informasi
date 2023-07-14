@@ -51,6 +51,9 @@ export default {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
+        maroon: {
+          DEFAULT: 'rgba(199, 0, 0, 1)',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -72,7 +75,7 @@ export default {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ['Plus Jakarta Sans', ...defaultTheme.fontFamily.sans],
       },
     },
   },

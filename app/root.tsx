@@ -10,7 +10,13 @@ import {
 } from '@remix-run/react'
 
 import stylesheet from '~/tailwind.css'
-import sansFontStyles from '@fontsource/inter/index.css'
+import sansFontStyles from '@fontsource/plus-jakarta-sans/index.css'
+import '@fontsource/plus-jakarta-sans/200.css'
+import '@fontsource/plus-jakarta-sans/300.css'
+import '@fontsource/plus-jakarta-sans/400.css'
+import '@fontsource/plus-jakarta-sans/500.css'
+import '@fontsource/plus-jakarta-sans/600.css'
+import '@fontsource/plus-jakarta-sans/700.css'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -27,7 +33,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden max-w-md mx-auto relative">
         <Outlet />
         <ScrollRestoration />
         <Scripts />
