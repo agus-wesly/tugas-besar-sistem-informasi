@@ -1,76 +1,109 @@
-import React from 'react'
-import { Button } from '~/components/ui/button'
+import { LoaderArgs, redirect } from '@remix-run/node'
+import { useActionData, useSubmit } from '@remix-run/react'
+import { ActionFunctionArgs, useNavigation } from 'react-router'
 import { Input } from '~/components/ui/input'
+import { Label } from '~/components/ui/label'
+import { createSession, getId } from '~/services/session.server'
+import { useRef } from 'react'
+import { Alert, AlertDescription } from '~/components/ui/alert'
+import { model } from '~/models'
 
-export default function UserComponent() {
-  return (
-    <div className="space-y-5">
-      <p className="text-center text-xl">Silahkan pilih menu sesukamu</p>
+export async function loader({ request }: LoaderArgs) {
+  let userId = await getId(request)
+  if (userId) {
+    throw redirect('/pesan')
+  }
 
-      <div className="relative">
-        <Input placeholder="Pilih makan" className="h-10" />
-        <button className="absolute right-0 top-0  w-10 h-10">
-          <img src="/icons/search.svg" className="w-6 h-6" />
-        </button>
-      </div>
-
-      <div className="space-y-8">
-        <div className="py-8 px-4 border rounded-md">
-          <h2 className="font-bold text-xl">Terlaris</h2>
-          <div className="flex justify-between pt-2 gap-4">
-            <div className="flex justify-between flex-col">
-              <h4 className="text-lg font-bold">NASI GILA</h4>
-              <p className="text-sm font-medium">
-                Hanya
-                <br />
-                Rp.14000/Porsi
-              </p>
-              <Button className="py-2 px-6">Pesan sekarang</Button>
-            </div>
-            <img
-              src="https://kurio-img.kurioapps.com/21/08/31/13bae191-984d-4029-b3cf-83116c0322be.jpe"
-              className="w-[163px] h-32"
-            />
-          </div>
-        </div>
-
-        <div className="px-4">
-          <h2 className="font-bold text-xl pb-2">Makanan</h2>
-          <div className="flex overflow-x-scroll snap-x pt-2 gap-6 snap-mandatory">
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-          </div>
-        </div>
-
-        <div className="px-4">
-          <h2 className="font-bold text-xl pb-2">Minuman</h2>
-          <div className="flex overflow-x-scroll pt-2 gap-4">
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-            <FoodCard />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+  return null
 }
 
-function FoodCard() {
+export async function action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData()
+  const name = formData.get('name')?.toString()
+  let table = formData.get('table')?.toString()
+  const orderType = formData.get('orderType')?.toString()
+
+  if (!name || !orderType || !table) {
+    return {
+      error: 'Error : Tolong isi kamu terlebih dahulu !!',
+    }
+  }
+
+  const newUser = await model.user.mutation.register({
+    name,
+    table: Number(table),
+  })
+
+  return await createSession(newUser.id, '/pesan')
+}
+
+export default function UserRegister() {
+  const submit = useSubmit()
+  const inputNameRef = useRef<HTMLInputElement>(null)
+  const inputTableRef = useRef<HTMLInputElement>(null)
+  const actionData = useActionData<{ error?: string }>()
+  const navigation = useNavigation()
+
+  function handleStartOrder(info: string) {
+    const name = inputNameRef?.current?.value
+    const table = inputTableRef?.current?.value
+    submit(
+      {
+        name: name || '',
+        table: table || null,
+        orderType: info,
+      },
+      {
+        method: 'post',
+      }
+    )
+  }
+
   return (
-    <div className="text-center border shadow-sm rounded-md space-y-2 snap-center">
-      <p className="font-semibold">Nasi Gila</p>
+    <div className="w-full bg-maroon px-4 pt-8 min-h-screen space-y-14 text-neutral-100">
+      {actionData?.error && !navigation.formData ? (
+        <Alert variant="destructive" className="border-white text-white">
+          <AlertDescription>{actionData.error}</AlertDescription>
+        </Alert>
+      ) : null}
+      <div className="text-center flex flex-col gap-2">
+        <Label className="text-lg" htmlFor="name">
+          Siapa nama kamu ?
+        </Label>
+        <Input
+          type="text"
+          id="name"
+          className="bg-transparent"
+          ref={inputNameRef}
+        />
 
-      <img
-        src="https://kurio-img.kurioapps.com/21/08/31/13bae191-984d-4029-b3cf-83116c0322be.jpe"
-        className="w-[128px] h-[92px] object-cover"
-      />
+        <Label className="text-lg mt-4" htmlFor="table">
+          Nomor meja ? (1 - 6)
+        </Label>
+        <Input
+          type="number"
+          id="table"
+          className="bg-transparent"
+          min={'1'}
+          max={'6'}
+          defaultValue={'1'}
+          ref={inputTableRef}
+        />
+      </div>
 
-      <p className="text-xs font-medium px-2">Rp.14.000/porsi</p>
-
-      <Button className="p-0 h-7 w-full">Pesan</Button>
+      <div className="text-center space-y-4">
+        <h3 className="text-xl font-bold">Pilih jenis pemesanan</h3>
+        <div className="flex justify-evenly">
+          <button onClick={() => handleStartOrder('dine-in')}>
+            <img src="/Vector.svg" className="h-[89px]" />
+            <p className="mt-4">Dine in</p>
+          </button>
+          <button onClick={() => handleStartOrder('take-away')}>
+            <img src="/Vector(1).svg" className="h-[89px]" />
+            <p className="mt-4">Take Away</p>
+          </button>
+        </div>
+      </div>
     </div>
   )
 }

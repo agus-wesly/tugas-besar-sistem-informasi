@@ -1,8 +1,8 @@
 import { LoaderArgs, json } from '@remix-run/node'
-import { requireAdminId } from '~/services/session.server'
+import { requireId } from '~/services/session.server'
 
 export async function loader({ request }: LoaderArgs) {
-  const adminId = await requireAdminId(request)
+  const adminId = await requireId(request, undefined, true)
 
   return json({ adminId })
 }

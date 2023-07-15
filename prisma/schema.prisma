@@ -13,8 +13,27 @@ model Meja {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-    pesanan Int @unique
-    pemesanan Pemesanan[]
+
+    user User[]
+}
+
+model User {
+    id        Int      @id @default(autoincrement())
+    nama       String  @unique @db.VarChar(32)
+    createdAt DateTime @default(now())
+
+    id_meja     Int
+    meja        Meja    @relation(fields: [id_meja], references: [id])
+
+    pemesanan   Pemesanan? 
+
+    @@index([id_meja])
+
+}
+
+enum TipeMenu {
+    MAKANAN
+    MINUMAN
 }
 
 model Menu {
@@ -23,6 +42,8 @@ model Menu {
     url_gambar      String
     deskripsi       String
     harga           Int
+
+    tipe            TipeMenu
 
     detail_pesanan DetailPesanan[]
 }
@@ -40,12 +61,12 @@ model Pemesanan {
     waktu_pesan     DateTime @default(now())
     updatedAt DateTime @updatedAt
 
-    no_meja Int
-    meja Meja @relation(fields: [no_meja], references: [pesanan])
+    user_id     Int     @unique
+    user        User    @relation(fields: [user_id], references: [id])
 
-    detail_pesana DetailPesanan[]
+    detail_pesanan DetailPesanan[]
 
-    @@index([no_meja])
+    @@index([user_id])
 }
 
 model DetailPesanan {

@@ -1,4 +1,4 @@
-import { ActionArgs, LoaderArgs, json, redirect } from '@remix-run/node'
+import { ActionArgs, LoaderArgs, redirect } from '@remix-run/node'
 import { Form, useActionData, useNavigation } from '@remix-run/react'
 import { badRequest } from 'remix-utils'
 import { Alert, AlertDescription, AlertTitle } from '~/components/ui/alert'
@@ -6,12 +6,12 @@ import { Button } from '~/components/ui/button'
 import { Input } from '~/components/ui/input'
 import { Label } from '~/components/ui/label'
 import { model } from '~/models'
-import { createAdminSession, getAdminId } from '~/services/session.server'
+import { createSession, getId } from '~/services/session.server'
 
 export async function loader({ request }: LoaderArgs) {
-  const adminId = await getAdminId(request)
+  const adminId = await getId(request, true)
   if (adminId) {
-    return redirect('/dashboard')
+    return redirect('/admin')
   }
   return adminId
 }
@@ -38,9 +38,9 @@ export async function action({ request }: ActionArgs) {
       })
 
     const getRedirect =
-      new URLSearchParams(request.url).get('redirectTo') || 'dashboard'
+      new URLSearchParams(request.url).get('redirectTo') || '/admin'
 
-    return await createAdminSession(id, `/${getRedirect}`)
+    return await createSession(id, `${getRedirect}`, true)
   } catch (error) {
     return null
   }
