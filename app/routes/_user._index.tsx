@@ -44,6 +44,8 @@ export default function UserRegister() {
   const actionData = useActionData<{ error?: string }>()
   const navigation = useNavigation()
 
+  const isSubmitting = navigation.state === 'submitting'
+
   function handleStartOrder(info: string) {
     const name = inputNameRef?.current?.value
     const table = inputTableRef?.current?.value
@@ -61,6 +63,9 @@ export default function UserRegister() {
 
   return (
     <div className="w-full bg-maroon px-4 pt-8 min-h-screen space-y-14 text-neutral-100">
+      {isSubmitting ? (
+        <div className="absolute inset-0 w-full h-full bg-black/50" />
+      ) : null}
       {actionData?.error && !navigation.formData ? (
         <Alert variant="destructive" className="border-white text-white">
           <AlertDescription>{actionData.error}</AlertDescription>

@@ -15,7 +15,7 @@ function createCookie(isAdmin = false) {
       secrets: [sessionSecret!],
       sameSite: 'lax',
       path: '/',
-      maxAge: 60 * 60 * 24 * 30,
+      maxAge: 60 * 60 * (isAdmin ? 24 : 1) * (isAdmin ? 30 : 1),
       httpOnly: true,
     },
   })
