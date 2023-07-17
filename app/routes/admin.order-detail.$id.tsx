@@ -1,5 +1,5 @@
 import { ActionArgs, LoaderArgs, json, redirect } from '@remix-run/node'
-import { Form, Link, useLoaderData } from '@remix-run/react'
+import { Form, Link, useLoaderData, useNavigation } from '@remix-run/react'
 import { Button } from '~/components/ui/button'
 import { model } from '~/models'
 import { requireId } from '~/services/session.server'
@@ -25,7 +25,9 @@ export async function action({ request, params }: ActionArgs) {
 
   if (action === 'confirm') {
     await model.pesan.mutation.updatePesan({ status: 'COMPLETED', id })
-  } else {
+  } else if (action === 'pay') {
+    await model.pesan.mutation.updatePesan({ status: 'PAYED', id })
+  } else if (action === 'reject') {
     await model.pesan.mutation.updatePesan({ status: 'REJECTED', id })
   }
 
@@ -34,6 +36,9 @@ export async function action({ request, params }: ActionArgs) {
 
 export default function OrderDetailAdmin() {
   const { pesanan } = useLoaderData<typeof loader>()
+  const navigation = useNavigation()
+
+  const isSubmitting = navigation.state === 'submitting'
 
   return (
     <main>
@@ -62,30 +67,39 @@ export default function OrderDetailAdmin() {
 
             <div className="space-y-1">
               <p className="text-lg font-semibold">{itm.menu.nama}</p>
-              <p className="text-sm">Meja {itm.jumlah}</p>
+              <p className="text-sm">Jmlh : {itm.jumlah}</p>
+              <p className="text-sm">Meja {itm.pemesanan.user.id_meja}</p>
               <p className="text-sm font-bold">Rp.{itm.menu.harga}</p>
             </div>
           </div>
         ))}
       </div>
-
-      <div className="flex flex-col gap-5 container my-5">
-        <Form method="post">
-          <Button name="_action" value="confirm" className="bg-blue-500 w-full">
-            Konfirmasi Pesanan
-          </Button>
-        </Form>
-        <Form method="post">
-          <Button
-            name="_action"
-            value="reject"
-            className="border-red w-full"
-            variant={'outline'}
-          >
-            Tolak pesanan
-          </Button>
-        </Form>
-      </div>
+      {pesanan.status !== 'PAYED' ? (
+        <div className="flex flex-col gap-5 container my-5">
+          <Form method="post">
+            <Button
+              disabled={isSubmitting}
+              name="_action"
+              value={pesanan.status === 'COMPLETED' ? 'pay' : 'confirm'}
+              className="bg-blue-500 w-full"
+            >
+              Konfirmasi{' '}
+              {pesanan.status === 'COMPLETED' ? 'Pembayaran' : 'Pesanan'}
+            </Button>
+          </Form>
+          <Form method="post">
+            <Button
+              disabled={isSubmitting}
+              name="_action"
+              value="reject"
+              className="border-red w-full"
+              variant={'outline'}
+            >
+              Tolak pesanan
+            </Button>
+          </Form>
+        </div>
+      ) : null}
     </main>
   )
 }

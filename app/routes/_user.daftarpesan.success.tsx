@@ -9,7 +9,7 @@ export async function loader({ request }: LoaderArgs) {
   await requireId(request, '/')
   const pesananId = new URL(request.url).searchParams.get('idPesan')
 
-  if (!pesananId) throw redirect('/')
+  if (!pesananId) throw redirect('/pesan')
 
   const pesanan = await model.pesan.query.getPesananById({
     id: Number(pesananId),

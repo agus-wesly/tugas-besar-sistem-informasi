@@ -19,9 +19,6 @@ export const query = {
       orderBy: {
         waktu_pesan: 'desc',
       },
-      where: {
-        status: 'PROCESSING',
-      },
     })
   },
 
@@ -34,12 +31,25 @@ export const query = {
         detail_pesanan: {
           include: {
             menu: true,
+            pemesanan: {
+              include: {
+                user: {
+                  include: {
+                    meja: true,
+                  },
+                },
+              },
+            },
           },
         },
       },
     })
   },
 }
+
+export type ListPesanan = Awaited<
+  ReturnType<(typeof query)['getAllPesanan']>
+>[number]
 
 export const mutation = {
   async createPesanan({
@@ -74,7 +84,7 @@ export const mutation = {
     status,
     id,
   }: {
-    status: 'COMPLETED' | 'REJECTED'
+    status: 'COMPLETED' | 'REJECTED' | 'PAYED'
     id: number
   }) {
     return prisma.pemesanan.update({

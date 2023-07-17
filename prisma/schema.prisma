@@ -25,7 +25,7 @@ model User {
     id_meja     Int
     meja        Meja    @relation(fields: [id_meja], references: [id])
 
-    pemesanan   Pemesanan? 
+    pemesanan   Pemesanan[]
 
     @@index([id_meja])
 
@@ -49,7 +49,7 @@ model Menu {
 }
 
 enum Status {
-    PENDING
+    PAYED
     PROCESSING
     COMPLETED
     REJECTED
@@ -62,8 +62,8 @@ model Pemesanan {
     updatedAt DateTime @updatedAt
     total_harga Int
 
-    user_id     Int     @unique
-    user        User    @relation(fields: [user_id], references: [id])
+    user_id     Int    
+    user        User    @relation(fields: [user_id], references: [id] )
 
 
     detail_pesanan DetailPesanan[]
@@ -79,7 +79,7 @@ model DetailPesanan {
     menu    Menu     @relation(fields: [id_menu], references: [id])
 
     id_pemesanan Int 
-    pemesanan   Pemesanan @relation(fields: [id_pemesanan], references: [id])
+    pemesanan   Pemesanan @relation(fields: [id_pemesanan], references: [id], onDelete: Cascade)
 
     @@index([id_menu])
     @@index([id_pemesanan])
