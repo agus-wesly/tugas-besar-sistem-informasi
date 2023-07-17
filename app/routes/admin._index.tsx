@@ -17,9 +17,13 @@ export default function Dashboard() {
   const { revalidate } = useRevalidator()
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       revalidate()
     }, 7000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   return (

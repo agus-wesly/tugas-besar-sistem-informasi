@@ -30,9 +30,13 @@ export default function PemesananSukses() {
   useEffect(() => {
     dispatch({ type: 'RESET' })
 
-    setInterval(() => {
+    const interval = setInterval(() => {
       revalidate()
     }, 7000)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [])
 
   const totalBayar = pesanan.detail_pesanan.reduce(
