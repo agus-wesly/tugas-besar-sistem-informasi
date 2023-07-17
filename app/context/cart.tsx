@@ -25,6 +25,9 @@ type Action =
       type: 'DECREASE'
       payload: number
     }
+  | {
+      type: 'RESET'
+    }
 
 export const cartContext = createContext<{
   state: CartState
@@ -82,6 +85,11 @@ const reducer = (state: CartState, action: Action): CartState => {
       return {
         ...state,
         items: [...filteredCart],
+      }
+    }
+    case 'RESET': {
+      return {
+        items: [],
       }
     }
     default: {

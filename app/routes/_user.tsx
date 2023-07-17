@@ -6,7 +6,7 @@ export default function UserLayout() {
   const isInRoot = useMatch('/')
   const { state } = useCartContext()
   return (
-    <main className="">
+    <main className="border min-h-screen">
       <div
         className={cn('bg-maroon w-full p-8 py-4 flex items-center', {
           'justify-between': !isInRoot,

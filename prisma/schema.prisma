@@ -60,9 +60,11 @@ model Pemesanan {
     status  Status
     waktu_pesan     DateTime @default(now())
     updatedAt DateTime @updatedAt
+    total_harga Int
 
     user_id     Int     @unique
     user        User    @relation(fields: [user_id], references: [id])
+
 
     detail_pesanan DetailPesanan[]
 
