@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "nama": "Nasi Uduk + Telor",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/3b242d7d177f18ee/1200x630cq70/photo.jpg",
+    "deskripsi": "Nasi uduk dan telor dadar",
+    "harga": 10000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 2,
+    "nama": "Nasi + Capcay",
+    "url_gambar": "https://www.bakmigm.com/cfind/source/thumb/images/menu-crop/cover_w480_h480_img-menu_0005s_0007_nasi-capcay.png",
+    "deskripsi": "Nasi Capcay",
+    "harga": 15000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 3,
+    "nama": "Nasi Gila",
+    "url_gambar": "https://www.dapurawit.com/wp-content/uploads/2021/02/Resep-Nasi-Gila-Pedas-Super-Praktis-dan-Enak.jpg",
+    "deskripsi": "Nasi Gila merupakan makanan favorit dan terlaris disini",
+    "harga": 14000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 4,
+    "nama": "Nasi Uduk Ayam Kaliwang",
+    "url_gambar": "https://assets-pergikuliner.com/K4ghNXLExLj7jfOEKnIpotvwgho=/385x290/smart/https://assets-pergikuliner.com/uploads/image/picture/1060689/picture-1536144921.JPG",
+    "deskripsi": "Nasi Uduk Ayam ditambah sambal kaliwang",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 5,
+    "nama": "Nasi Goreng Baso",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/40bbe5b0900ec0d3/1200x630cq70/photo.jpg",
+    "deskripsi": "Nasi goreng ditambah Baso",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 6,
+    "nama": "Nasi Goreng Rolade",
+    "url_gambar": "https://i0.wp.com/i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/ab7b82e0-75b5-4659-9ff2-16be199a9cd1_4f8610a4-b0fc-4f8d-bea7-e3fd5ceb3879_Go-Biz_20190203_162411.jpeg",
+    "deskripsi": "Nasi goreng dengan rolade",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 7,
+    "nama": "Nasi Mawut",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/3d8cd2bb102b20ed/680x482cq70/nasi-goreng-mawut-foto-resep-utama.jpg",
+    "deskripsi": "nasi goreng yang dicampur dengan berbagai bahan dapur, seperti mie instan, bawang, kecap, telur, dan lainnya.",
+    "harga": 10000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 8,
+    "nama": "Nasi Sarden",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/0df076ab10143348/1200x630cq70/photo.jpg",
+    "deskripsi": "Nasi Sarden adalah hidangan nasi yang disajikan dengan ikan sarden sebagai bahan utama.",
+    "harga": 10000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 9,
+    "nama": "Nasi Sarden + Telor",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/33401f99055b69c9/680x482cq70/nasi-sarden-telur-goreng-tepung-foto-resep-utama.jpg",
+    "deskripsi": "Nasi Sarden adalah hidangan nasi yang disajikan dengan ikan sarden sebagai bahan utama dengan tambahan Telor.",
+    "harga": 10000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 10,
+    "nama": "Nasi Telor ",
+    "url_gambar": "https://kbu-cdn.com/dk/wp-content/uploads/nasi-telur-sentosa.jpg",
+    "deskripsi": "Nasi Telor adalah hidangan nasi yang disajikan dengan telur sebagai bahan utama.",
+    "harga": 8000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 11,
+    "nama": "Nasi Goreng",
+    "url_gambar": "https://asset-2.tstatic.net/kaltim/foto/bank/images/resep-nasi-goreng-jawa.jpg",
+    "deskripsi": " Nasi Goreng adalah nasi yang digoreng dengan bumbu, dan sayuran. Populer di Indonesia dan Asia.",
+    "harga": 14000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 12,
+    "nama": "Nasi Goreng Sosis",
+    "url_gambar": "https://www.masakapahariini.com/wp-content/uploads/2022/09/nasi-goreng-sosis-featured.jpg",
+    "deskripsi": " Nasi Goreng Sosis adalah hidangan nasi goreng yang disajikan dengan potongan sosis sebagai tambahan.",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 13,
+    "nama": "Nasi Goreng Kornet",
+    "url_gambar": "https://resepkoki.co/wp-content/uploads/2015/05/nasgorkornet.jpg",
+    "deskripsi": "Nasi Goreng Kornet adalah hidangan nasi goreng yang dicampur dengan kornet sebagai bahan utama.",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 14,
+    "nama": "Nasi Goreng Oplos",
+    "url_gambar": "https://awsimages.detik.net.id/community/media/visual/2021/09/23/resep-nasi-goreng-sosis-dan-sayuran_43.jpeg?w=1200",
+    "deskripsi": " Nasi Goreng Campur adalah hidangan nasi goreng yang dicampur dengan berbagai bahan seperti telur, dan sayuran.",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 15,
+    "nama": "Nasi Sosis Orak Arik",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/771132c7d037e5ee/680x482cq70/rice-bowl-orak-arik-telur-sosis-foto-resep-utama.jpg",
+    "deskripsi": " Nasi Sosis Orak-Arik adalah hidangan nasi yang dicampur dengan sosis yang telah diorak-arik.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 16,
+    "nama": "Nasi Naget Orak Arik",
+    "url_gambar": "https://i0.wp.com/i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/76d335cc-016a-48fd-b745-5ba225f6b09e_Go-Biz_20230124_223147.jpeg",
+    "deskripsi": "Nasi Naget Orak-Arik adalah hidangan nasi yang dicampur dengan nugget (naget) dan telur yang telah diorak-arik.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 17,
+    "nama": "Nasi Telor Orak Arik",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/516d35140b305a71/1200x630cq70/photo.jpg",
+    "deskripsi": "Nasi Telur Orak-Arik adalah hidangan nasi yang dicampur dengan telur yang telah diorak-arik atau digoreng hingga lembut.",
+    "harga": 9000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 18,
+    "nama": "Nasi Rolade Orak Arik",
+    "url_gambar": "https://asset-2.tstatic.net/bali/foto/bank/images/resep-nasi-gila-sarapan-enak-gurih-pedas-toppingnya-ada-ayam-telur-orak-arik-hingga-sosis.jpg",
+    "deskripsi": "Nasi Naget Orak-Arik adalah hidangan nasi yang dicampur dengan Rolade dan telur yang telah diorak-arik.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 19,
+    "nama": "Nasi Baso Orak Arik",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/041058bec4e4a2aa/680x482cq70/oseng-sosis-bakso-dan-orak-arik-telur-foto-resep-utama.jpg",
+    "deskripsi": " Nasi Baso Orak-Arik adalah nasi yang dicampur dengan bakso dan telur yang digoreng hingga lembut. Lezat dan mengenyangkan.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 20,
+    "nama": "Nasi Kornet Orak Arik",
+    "url_gambar": "https://sweetrip.id/wp-content/uploads/2022/05/resep-kornet-telur-orak-arik.jpg",
+    "deskripsi": "Nasi Kornet Orak-Arik adalah nasi yang dicampur dengan kornet dan telur yang telah diorak-arik atau digoreng hingga lembut.",
+    "harga": 12000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 21,
+    "nama": "Nasi Steak Kornet",
+    "url_gambar": "https://asset-2.tstatic.net/tribunnews/foto/bank/images/beef-teriyaki-spesial.jpg",
+    "deskripsi": " Nasi Steak Kornet adalah hidangan nasi dengan irisan daging kornet yang dimasak seperti steak. Lezat dan berbeda dari hidangan kornet biasa.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 22,
+    "nama": "Nasi Merapi",
+    "url_gambar": "https://img.qraved.co/v2/image/data/2017/03/29/shecreatbelly_29_3_2017_11_29_-640x427-x.jpg",
+    "deskripsi": "Nasi Merapi adalah hidangan nasi dari Indonesia, disajikan dengan lauk pedas. Terinspirasi dari Gunung Merapi yang berapi aktif.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 23,
+    "nama": "Nasi Uduk Ayam",
+    "url_gambar": "https://images.tokopedia.net/img/cache/700/product-1/2018/4/25/31651148/31651148_9fe7cd0f-a97b-46e2-8078-b8f7a6cde885_2048_1536.jpg",
+    "deskripsi": "Nasi Uduk Ayam adalah hidangan nasi yang dimasak dalam santan dan bumbu rempah, disajikan dengan lauk ayam.",
+    "harga": 15000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 24,
+    "nama": "Nasi Putih",
+    "url_gambar": "https://static.honestdocs.id/system/blog_articles/main_hero_images/000/005/813/original/iStock-1138408361_%281%29.jpg",
+    "deskripsi": "Nasi putih adalah nasi yang dimasak tanpa tambahan bumbu atau pewarna, biasanya disajikan sebagai hidangan utama atau pendamping makanan lainnya.",
+    "harga": 5000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 25,
+    "nama": "Nasi Uduk",
+    "url_gambar": "https://asset-a.grid.id/crop/33x16:676x446/700x465/photo/2020/03/02/307807415.jpg",
+    "deskripsi": " Nasi Uduk adalah hidangan nasi yang dimasak dalam santan dan bumbu rempah, memiliki aroma harum, dan sering disajikan dengan lauk seperti ayam goreng, telur, tempe, atau sambal.",
+    "harga": 6000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 26,
+    "nama": "Nasi Ayam",
+    "url_gambar": "https://i0.wp.com/i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/b58252cf-8f66-4cda-82cc-3206abd4f4fb_Go-Biz_20210921_191647.jpeg",
+    "deskripsi": " Nasi Ayam adalah hidangan nasi yang disajikan dengan potongan ayam sebagai lauk utama",
+    "harga": 14000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 27,
+    "nama": "Nasi Omlet",
+    "url_gambar": "https://dcostseafood.id/wp-content/uploads/2021/12/Nasi-omelette-seafood.jpg",
+    "deskripsi": " Nasi Omlet adalah hidangan nasi yang dicampur dengan telur dadar atau orak-arik, menciptakan hidangan yang lezat dan mengenyangkan.",
+    "harga": 12000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 28,
+    "nama": "Omlet",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/d2407f779025cf9b/680x482cq70/omlet-martabak-mie-foto-resep-utama.jpg",
+    "deskripsi": "Omlet adalah hidangan telur goreng",
+    "harga": 6000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 29,
+    "nama": "Indomie Goreng",
+    "url_gambar": "bit.ly/3OdkDbp",
+    "deskripsi": "Indomie adalah merek mie instan yang sangat populer di Indonesia dan beberapa negara lainnya",
+    "harga": 6000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 30,
+    "nama": "Indomie Goreng Telor",
+    "url_gambar": "https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/instant-indomie-noodles-indonesians-cannot-live-without/thumbnail-indomie-indonesia.jpg",
+    "deskripsi": "Indomie dengan tambahan telur sebagai toping.",
+    "harga": 10000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 31,
+    "nama": "Indomie Goreng Telor + Keju",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/8d90640dccac1326/1200x630cq70/photo.jpg",
+    "deskripsi": "Indomie dengan tambahan telur dan keju sebagai toping.",
+    "harga": 15000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 32,
+    "nama": "Indomi Goreng Telor + Kornet",
+    "url_gambar": "https://cookingwithmamamiyuki.files.wordpress.com/2011/12/p3090113.jpg",
+    "deskripsi": "Indomie dengan tambahan telur dan kornet sebagai toping.",
+    "harga": 15000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 33,
+    "nama": "Indomie Goreng Telor + Kornet + Baso",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/f09cc91b6d4b8499/1200x630cq70/photo.jpg",
+    "deskripsi": "Indomie dengan tambahan telur, kornet dan bakso sebagai toping.",
+    "harga": 16000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 34,
+    "nama": "Mie Dok Dok",
+    "url_gambar": "https://cdn.idntimes.com/content-images/community/2018/04/mie-kuah-pedas-pengusahasukses-3e6a4e625a774c03ff2ab0790498213c_600x400.jpg",
+    "deskripsi": " Mie Dok-Dok adalah hidangan mie khas Palembang, Indonesia, dengan tekstur kenyal dan saus pedas khas. Disajikan dengan telur rebus dan sayuran.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  },
+  {
+    "id": 35,
+    "nama": "Mie Tumis",
+    "url_gambar": "https://img-global.cpcdn.com/recipes/6801e425e77ad74b/680x482cq70/mie-tumis-kering-foto-resep-utama.jpg",
+    "deskripsi": " Mie Tumis adalah hidangan mie yang digoreng dengan tumisan bumbu dan bahan lainnya seperti sayuran.",
+    "harga": 11000,
+    "tipe": "MAKANAN"
+  }
+]

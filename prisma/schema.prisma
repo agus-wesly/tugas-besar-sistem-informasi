@@ -19,7 +19,7 @@ model Meja {
 
 model User {
     id        Int      @id @default(autoincrement())
-    nama       String  @unique @db.VarChar(32)
+    nama       String  @db.VarChar(32)
     createdAt DateTime @default(now())
 
     id_meja     Int

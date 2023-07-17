@@ -1,4 +1,3 @@
-import { forbidden } from 'remix-utils'
 import { prisma } from '~/lib/prisma'
 
 export const query = {

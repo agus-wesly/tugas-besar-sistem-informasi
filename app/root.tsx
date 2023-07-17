@@ -20,6 +20,7 @@ import '@fontsource/plus-jakarta-sans/500.css'
 import '@fontsource/plus-jakarta-sans/600.css'
 import '@fontsource/plus-jakarta-sans/700.css'
 import { PropsWithChildren } from 'react'
+import Provider from './context/cart'
 
 export const links: LinksFunction = () => [
   { rel: 'stylesheet', href: stylesheet },
@@ -49,7 +50,9 @@ function Document({ children }: PropsWithChildren<{ title?: string }>) {
 export default function App() {
   return (
     <Document>
-      <Outlet />
+      <Provider>
+        <Outlet />
+      </Provider>
     </Document>
   )
 }
