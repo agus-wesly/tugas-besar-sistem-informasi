@@ -95,7 +95,10 @@ export default function PemesananSukses() {
 
           <div className="space-y-5">
             {pesanan.detail_pesanan.map((itm) => (
-              <div className="w-full flex items-center gap-8 border rounded-lg">
+              <div
+                key={itm.id}
+                className="w-full flex items-center gap-8 border rounded-lg"
+              >
                 <img
                   src={itm.menu.url_gambar}
                   className="w-32 aspect-square object-cover"
@@ -115,8 +118,18 @@ export default function PemesananSukses() {
     )
   }
 
+  if (pesanan.status === 'PAYED') {
+    content = (
+      <p className="text-center">
+        Pesanan kamu sedang disiapkan. Harap menunggu dan selamat menikmati
+        makanan.
+      </p>
+    )
+  }
+
   return (
     <div className="py-10 container text-center flex flex-col gap-4">
+      <h3 className="text-center text-lg font-bold">Status pesanan : </h3>
       {content}
     </div>
   )

@@ -59,21 +59,23 @@ export default function Dashboard() {
           </TabsList>
           <TabsContent value="ongoing" className="space-y-3">
             {pesananBaru.length ? (
-              pesananBaru.map((itm) => <ListPesanan itm={itm} />)
+              pesananBaru.map((itm) => <ListPesanan key={itm.id} itm={itm} />)
             ) : (
               <p className="text-center">Belum ada pesanan datang</p>
             )}
           </TabsContent>
           <TabsContent value="confirmed" className="space-y-3">
             {pesananDikonfirmasi.length ? (
-              pesananDikonfirmasi.map((itm) => <ListPesanan itm={itm} />)
+              pesananDikonfirmasi.map((itm) => (
+                <ListPesanan key={itm.id} itm={itm} />
+              ))
             ) : (
               <p className="text-center">Belum ada pesanan datang</p>
             )}
           </TabsContent>
           <TabsContent value="payed" className="space-y-3">
             {pesananDibayar.length ? (
-              pesananDibayar.map((itm) => <ListPesanan itm={itm} />)
+              pesananDibayar.map((itm) => <ListPesanan key={itm.id} itm={itm} />)
             ) : (
               <p className="text-center">Belum ada pesanan datang</p>
             )}

@@ -26,7 +26,7 @@ export default function Search() {
   return (
     <div className="container space-y-4">
       {menus.length ? (
-        menus.map((itm) => <MenuCard {...itm} />)
+        menus.map((itm) => <MenuCard key={itm.id} {...itm} />)
       ) : isLoading ? (
         <p className="text-center font-semibold">Loading...</p>
       ) : (

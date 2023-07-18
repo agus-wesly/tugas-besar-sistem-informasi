@@ -62,7 +62,10 @@ export default function OrderDetailAdmin() {
         </h3>
 
         {pesanan.detail_pesanan.map((itm) => (
-          <div className="w-full flex items-center gap-8 border rounded-lg pr-2">
+          <div
+            className="w-full flex items-center gap-8 border rounded-lg pr-2"
+            key={itm.id}
+          >
             <img src={itm.menu.url_gambar} className="w-36 h-32 object-cover" />
 
             <div className="space-y-1">

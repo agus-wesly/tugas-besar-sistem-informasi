@@ -8,9 +8,12 @@ export default function UserLayout() {
   return (
     <main className="border min-h-screen">
       <div
-        className={cn('bg-maroon w-full p-8 py-4 flex items-center', {
-          'justify-between': !isInRoot,
-        })}
+        className={cn(
+          'bg-maroon w-full p-8 py-4 flex items-center sticky top-0 z-[10]',
+          {
+            'justify-between': !isInRoot,
+          }
+        )}
       >
         <Link to={'/'}>
           <img src="/food-logo-fill.svg" className="w-[69px] h-[69px]" />

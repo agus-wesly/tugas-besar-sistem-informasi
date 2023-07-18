@@ -28,10 +28,16 @@ export async function action({ request }: ActionFunctionArgs) {
       error: 'Error : Tolong isi kamu terlebih dahulu !!',
     }
   }
-
+  const parsedTable = Number(table)
+  if (parsedTable < 1 || parsedTable > 6 || !parsedTable) {
+    console.log('BBB')
+    return {
+      error: 'Error : Input meja tidak valid !!',
+    }
+  }
   const newUser = await model.user.mutation.register({
     name,
-    table: Number(table),
+    table: parsedTable,
   })
 
   return await createSession(newUser.id, '/pesan')
@@ -103,7 +109,7 @@ export default function UserRegister() {
             <img src="/Vector.svg" className="h-[89px]" />
             <p className="mt-4">Dine in</p>
           </button>
-          <button onClick={() => handleStartOrder('take-away')}>
+          <button disabled className="cursor-not-allowed opacity-70">
             <img src="/Vector(1).svg" className="h-[89px]" />
             <p className="mt-4">Take Away</p>
           </button>
